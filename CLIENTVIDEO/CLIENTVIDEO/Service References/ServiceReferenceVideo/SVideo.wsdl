@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SVideo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49643/SVideo.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49643/SVideo.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49643/SVideo.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SERVICEVIDEO" />
+      <xsd:import schemaLocation="http://localhost:49643/SVideo.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISVideo_getVideo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getVideo" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getVideoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideos_InputMessage">
+    <wsdl:part name="parameters" element="tns:getVideos" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getVideosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideosByTittle_InputMessage">
+    <wsdl:part name="parameters" element="tns:getVideosByTittle" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideosByTittle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getVideosByTittleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideosByCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:getVideosByCategory" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideosByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getVideosByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideoByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:getVideoByCode" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getVideoByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getVideoByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_addVideo_InputMessage">
+    <wsdl:part name="parameters" element="tns:addVideo" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_addVideo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addVideoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_deleteVideo_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteVideo" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_deleteVideo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteVideoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_addUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:addUser" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_addUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_gerUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:gerUser" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_gerUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gerUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_isValidEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:isValidEmail" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_isValidEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isValidEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_isValidPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:isValidPassword" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_isValidPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isValidPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getCommantaires_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCommantaires" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_getCommantaires_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCommantairesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_addCommentaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCommentaire" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_addCommentaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCommentaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_updateCommentaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateCommentaire" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_updateCommentaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateCommentaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadRequest">
+    <wsdl:part name="parameters" element="tns:DownloadRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo">
+    <wsdl:part name="parameters" element="tns:RemoteFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:message name="ISVideo_uploader_OutputMessage" />
+  <wsdl:portType name="ISVideo">
+    <wsdl:operation name="getVideo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/getVideo" message="tns:ISVideo_getVideo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/getVideoResponse" message="tns:ISVideo_getVideo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getVideos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/getVideos" message="tns:ISVideo_getVideos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/getVideosResponse" message="tns:ISVideo_getVideos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getVideosByTittle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/getVideosByTittle" message="tns:ISVideo_getVideosByTittle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/getVideosByTittleResponse" message="tns:ISVideo_getVideosByTittle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getVideosByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/getVideosByCategory" message="tns:ISVideo_getVideosByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/getVideosByCategoryResponse" message="tns:ISVideo_getVideosByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getVideoByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/getVideoByCode" message="tns:ISVideo_getVideoByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/getVideoByCodeResponse" message="tns:ISVideo_getVideoByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addVideo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/addVideo" message="tns:ISVideo_addVideo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/addVideoResponse" message="tns:ISVideo_addVideo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteVideo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/deleteVideo" message="tns:ISVideo_deleteVideo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/deleteVideoResponse" message="tns:ISVideo_deleteVideo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/addUser" message="tns:ISVideo_addUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/addUserResponse" message="tns:ISVideo_addUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gerUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/gerUser" message="tns:ISVideo_gerUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/gerUserResponse" message="tns:ISVideo_gerUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isValidEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/isValidEmail" message="tns:ISVideo_isValidEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/isValidEmailResponse" message="tns:ISVideo_isValidEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isValidPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/isValidPassword" message="tns:ISVideo_isValidPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/isValidPasswordResponse" message="tns:ISVideo_isValidPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCommantaires">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/getCommantaires" message="tns:ISVideo_getCommantaires_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/getCommantairesResponse" message="tns:ISVideo_getCommantaires_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCommentaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/addCommentaire" message="tns:ISVideo_addCommentaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/addCommentaireResponse" message="tns:ISVideo_addCommentaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCommentaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/updateCommentaire" message="tns:ISVideo_updateCommentaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/updateCommentaireResponse" message="tns:ISVideo_updateCommentaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="telecharger">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/telecharger" name="DownloadRequest" message="tns:DownloadRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/telechargerResponse" name="RemoteFileInfo" message="tns:RemoteFileInfo" />
+    </wsdl:operation>
+    <wsdl:operation name="uploader">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISVideo/uploader" name="RemoteFileInfo" message="tns:RemoteFileInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISVideo/uploaderResponse" message="tns:ISVideo_uploader_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISVideo" type="tns:ISVideo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getVideo">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/getVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVideos">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/getVideos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVideosByTittle">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/getVideosByTittle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVideosByCategory">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/getVideosByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVideoByCode">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/getVideoByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addVideo">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/addVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteVideo">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/deleteVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/addUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gerUser">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/gerUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isValidEmail">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/isValidEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isValidPassword">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/isValidPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCommantaires">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/getCommantaires" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCommentaire">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/addCommentaire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCommentaire">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/updateCommentaire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="telecharger">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/telecharger" style="document" />
+      <wsdl:input name="DownloadRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoteFileInfo">
+        <soap:header message="tns:RemoteFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploader">
+      <soap:operation soapAction="http://tempuri.org/ISVideo/uploader" style="document" />
+      <wsdl:input name="RemoteFileInfo">
+        <soap:header message="tns:RemoteFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SVideo">
+    <wsdl:port name="BasicHttpBinding_ISVideo" binding="tns:BasicHttpBinding_ISVideo">
+      <soap:address location="http://localhost:49643/SVideo.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

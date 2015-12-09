@@ -1,0 +1,56 @@
+﻿@model CLIENTVIDEO.ServiceReferenceVideo.Video
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Videos : edit";
+}
+
+<div class="content">
+    <div class="register">
+        <div class="col-md-8 login-left">
+            @using (Html.BeginForm("Add", "Videos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
+                {
+                    <div>
+                        <span>Tittle <label>*</label></span>
+                        @Html.TextBoxFor(model => model.tittle, new { @id = "tittle", @class = "form-control", placeholder = "Le titre du video" })
+
+                    </div>
+
+                    <div>
+                        <span>Genre</span>
+                        @Html.TextBoxFor(model => model.category, new { @id = "genre", @class = "form-control", placeholder = "genre de projets" })
+
+                    </div>
+
+                    <div>
+                        <span>Describe</span>
+                        @Html.TextArea("describe", Model.describe, 6, 60, new { @class = "form-control" })
+                    </div>
+
+
+
+                    <div>
+                            <span>path poster<label>*</label></span>
+                            @Html.TextBoxFor(model => model.poster, new { type = "file" })
+                        </div>
+                        <br/>
+                        <div>
+                            <span>path video<label>*</label></span>
+                            @Html.TextBoxFor(model => model.data, new { type = "file" })
+                        </div>
+                        <br/>
+                        <a class="forgot" href="#">&nbsp;</a>
+                        <input type="submit" value="update this movie"/>
+                        @Html.ActionLink("Déléte", "Delete");
+                        @Html.ActionLink("Back to list", "Index");
+
+                }
+            }
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+

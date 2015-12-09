@@ -1,0 +1,9 @@
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\bin\SERVICEVIDEO.dll.config
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\bin\SERVICEVIDEO.dll
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\bin\SERVICEVIDEO.pdb
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\obj\Debug\SERVICEVIDEO.dll
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\obj\Debug\SERVICEVIDEO.pdb
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\obj\Debug\SERVICEVIDEO.csprojResolveAssemblyReference.cache
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\bin\EntityFramework.dll
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\bin\EntityFramework.xml
+C:\Users\diallo\Documents\Visual Studio 2013\Projects\SERVICEVIDEO\SERVICEVIDEO\bin\fr\EntityFramework.resources.dll

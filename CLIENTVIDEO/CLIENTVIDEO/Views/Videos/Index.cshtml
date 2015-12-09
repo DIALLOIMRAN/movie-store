@@ -1,0 +1,47 @@
+﻿@model CLIENTVIDEO.ServiceReferenceVideo.Video[]
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Videos : admin";
+}
+
+<div class="content">
+    <div class="col-lg-8 col-lg-offset-2 ">
+        <div class="alert-info text-center"><h3>Liste des videos</h3></div>
+        
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+
+        <table class=" table table-hover ">
+            <tr>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Category </th>
+                <th>&nbsp; </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tittle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category)
+                    </td>
+                    <td>
+                        <a href="@Url.Content("/Videos/Edit/"+@item.code)">Edit</a> |
+                        <a href="@Url.Content("/Videos/Delete/"+@item.code)">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="clearfix"> </div>
+</div>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBmovieModelStoreContainer" CdmEntityContainer="DBmovieEntities1">
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="DBmovieModel.Comments">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+          <ScalarProperty Name="datePost" ColumnName="datePost" />
+          <ScalarProperty Name="content" ColumnName="content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="DBmovieModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="profil" ColumnName="profil" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Video">
+      <EntityTypeMapping TypeName="DBmovieModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="tittle" ColumnName="tittle" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="poster" ColumnName="poster" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="vote" ColumnName="vote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Watch">
+      <EntityTypeMapping TypeName="DBmovieModel.Watch">
+        <MappingFragment StoreEntitySet="Watch">
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+          <ScalarProperty Name="note" ColumnName="note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

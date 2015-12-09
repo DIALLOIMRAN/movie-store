@@ -1,0 +1,53 @@
+﻿@model CLIENTVIDEO.ServiceReferenceVideo.Video []
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Videos : movies";
+}
+
+<div class="content">
+    <div class="box_1">
+        <h1 class="m_2">Featurd Movies</h1>
+        <div class="search">
+            <form action="Chearch" method="post">
+                <input type="text" name="nom" value="Search..." onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                <input type="submit" value="">
+            </form>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="box_2">
+        <div class="movie_top">
+            <div class="col-md-9 movie_box">
+                @foreach (var item in Model)
+                { 
+                    <!-- Movie variant with time -->
+                    <div class="movie movie-test movie-test-dark movie-test-left">
+                        <div class="movie__images">
+                            <a href="@Url.Content("/Single/Index/"+@item.code)" class="movie-beta__link">
+                                <img alt="" src="@Url.Content("~/Content/images/" + @item.poster)" class="img-responsive" />
+                                <form>
+                                    <input type="hidden" name="userHidden" value=""/>
+                                   
+                                </form>
+                            </a>
+                            
+                        </div>
+                        <div class="movie__info">
+                            <a href="@Url.Content("/Single/Index/"+@item.code)" class="movie__title">@item.tittle</a>
+                            <p class="movie__time">80 min</p>
+                            <p class="movie__option"><a href="single.html"> @item.category</a></p>
+                            <ul class="list_6">
+                                <li><i class="icon1"> </i><p>@item.vote</p></li>
+                                <li>Rating : &nbsp;&nbsp;<p><img src="@Url.Content("~/Content/images/rating1.png")" alt=""></p></li>
+                                @*<div class="clearfix"> </div>*@
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>

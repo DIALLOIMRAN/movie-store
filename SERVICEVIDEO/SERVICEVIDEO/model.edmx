@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBmovieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="MOVIEID" />
+          </Key>
+          <Property Name="USERID" Type="int" Nullable="false" />
+          <Property Name="MOVIEID" Type="int" Nullable="false" />
+          <Property Name="datePost" Type="date" />
+          <Property Name="content" Type="text" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="100" />
+          <Property Name="profil" Type="nvarchar" MaxLength="100" />
+          <Property Name="role" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tittle" Type="varchar" MaxLength="20" />
+          <Property Name="category" Type="varchar" MaxLength="20" />
+          <Property Name="describe" Type="text" />
+          <Property Name="poster" Type="varchar" MaxLength="100" />
+          <Property Name="data" Type="nvarchar" MaxLength="100" />
+          <Property Name="vote" Type="int" />
+        </EntityType>
+        <EntityType Name="Watch">
+          <Key>
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="MOVIEID" />
+          </Key>
+          <Property Name="USERID" Type="int" Nullable="false" />
+          <Property Name="MOVIEID" Type="int" Nullable="false" />
+          <Property Name="note" Type="int" />
+        </EntityType>
+        <Association Name="fk_comment1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_comment2">
+          <End Role="Video" Type="Self.Video" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_watch1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Watch" Type="Self.Watch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Watch">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_watch2">
+          <End Role="Video" Type="Self.Video" Multiplicity="1" />
+          <End Role="Watch" Type="Self.Watch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Watch">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBmovieModelStoreContainer">
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Watch" EntityType="Self.Watch" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_comment1" Association="Self.fk_comment1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="fk_comment2" Association="Self.fk_comment2">
+            <End Role="Video" EntitySet="Video" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="fk_watch1" Association="Self.fk_watch1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Watch" EntitySet="Watch" />
+          </AssociationSet>
+          <AssociationSet Name="fk_watch2" Association="Self.fk_watch2">
+            <End Role="Video" EntitySet="Video" />
+            <End Role="Watch" EntitySet="Watch" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBmovieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="MOVIEID" />
+          </Key>
+          <Property Name="USERID" Type="Int32" Nullable="false" />
+          <Property Name="MOVIEID" Type="Int32" Nullable="false" />
+          <Property Name="datePost" Type="DateTime" Precision="0" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.fk_comment1" FromRole="Comments" ToRole="User" />
+          <NavigationProperty Name="Video" Relationship="Self.fk_comment2" FromRole="Comments" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="profil" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Comments" Relationship="Self.fk_comment1" FromRole="User" ToRole="Comments" />
+          <NavigationProperty Name="Watch" Relationship="Self.fk_watch1" FromRole="User" ToRole="Watch" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tittle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="poster" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="data" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="vote" Type="Int32" />
+          <NavigationProperty Name="Comments" Relationship="Self.fk_comment2" FromRole="Video" ToRole="Comments" />
+          <NavigationProperty Name="Watch" Relationship="Self.fk_watch2" FromRole="Video" ToRole="Watch" />
+        </EntityType>
+        <EntityType Name="Watch">
+          <Key>
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="MOVIEID" />
+          </Key>
+          <Property Name="USERID" Type="Int32" Nullable="false" />
+          <Property Name="MOVIEID" Type="Int32" Nullable="false" />
+          <Property Name="note" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.fk_watch1" FromRole="Watch" ToRole="User" />
+          <NavigationProperty Name="Video" Relationship="Self.fk_watch2" FromRole="Watch" ToRole="Video" />
+        </EntityType>
+        <Association Name="fk_comment1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_comment2">
+          <End Role="Video" Type="Self.Video" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_watch1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Watch" Type="Self.Watch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Watch">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_watch2">
+          <End Role="Video" Type="Self.Video" Multiplicity="1" />
+          <End Role="Watch" Type="Self.Watch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Watch">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBmovieEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Comments" EntityType="Self.Comments" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Video" EntityType="Self.Video" />
+          <EntitySet Name="Watch" EntityType="Self.Watch" />
+          <AssociationSet Name="fk_comment1" Association="Self.fk_comment1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="fk_comment2" Association="Self.fk_comment2">
+            <End Role="Video" EntitySet="Video" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="fk_watch1" Association="Self.fk_watch1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Watch" EntitySet="Watch" />
+          </AssociationSet>
+          <AssociationSet Name="fk_watch2" Association="Self.fk_watch2">
+            <End Role="Video" EntitySet="Video" />
+            <End Role="Watch" EntitySet="Watch" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBmovieModelStoreContainer" CdmEntityContainer="DBmovieEntities1">
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="DBmovieModel.Comments">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+                <ScalarProperty Name="datePost" ColumnName="datePost" />
+                <ScalarProperty Name="content" ColumnName="content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="DBmovieModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="profil" ColumnName="profil" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Video">
+            <EntityTypeMapping TypeName="DBmovieModel.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="tittle" ColumnName="tittle" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="poster" ColumnName="poster" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="vote" ColumnName="vote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Watch">
+            <EntityTypeMapping TypeName="DBmovieModel.Watch">
+              <MappingFragment StoreEntitySet="Watch">
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+                <ScalarProperty Name="note" ColumnName="note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
